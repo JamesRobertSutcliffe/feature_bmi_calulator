@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>BMI Calculator</title>
+        <link rel="stylesheet" href="BMI.css">        
+    </head>
+<body>
+<div>
+    <h1>Adult BMI Calculator</h1>
+<label>Height (Metres)</label><br>
+<Input type="num" id="heightValue" placeholder="Please use numbers only"><br>
+<label>Weight (KG)</label><br>
+<Input type="num" id="weightValue" placeholder="Please use numbers only"><br>
+<input type="button" id="btn1" value="Calculate">
+</div>
+
+<div2>
+<h1 id="output3"></h1>
+<p type="num" id="output1"></p>
+<p type="num" id="output2"></p>
+</div2>
+
+<script>
+const heightInput = document.getElementById("heightValue");
+const weightInput = document.getElementById("weightValue");
+const btn1 = document.getElementById("btn1");
+const out1 = document.getElementById("output1");
+const out2 = document.getElementById("output2");
+const out3 = document.getElementById("output3");
+
+function calculateBMI(){
+Height = heightInput.value;
+Weight = weightInput.value;
+BMI = Weight/(Height**2);
+if ((BMI>12) && (BMI < 18.5)){
+    out1.innerHTML= 'BMI = '+BMI.toFixed(2);
+    out2.innerHTML= "Below 18.5, you're in the underweight range.";
+    out3.innerHTML= "Result:";
+} else if ((BMI > 18.5) && (BMI < 24.9)){
+    out1.innerHTML= 'BMI = '+BMI.toFixed(2);
+    out2.innerHTML= "Between 18.5 and 24.9, you're in the healthy weight range.";
+    out3.innerHTML= "Result:";
+} else if ((BMI > 25) && (BMI < 29.9)){
+    out1.innerHTML= 'BMI = '+BMI.toFixed(2);
+    out2.innerHTML= "Between 25 and 29.9, you're in the overweight range.";
+    out3.innerHTML= "Result:";
+} else if((BMI > 30) && (BMI < 46)){
+    out1.innerHTML= 'BMI = '+BMI.toFixed(2);
+    out2.innerHTML= "Above 30, you're in the obese range.";
+    out3.innerHTML= "Result:";
+    } else {
+        out1.innerHTML= "Input Error";
+        out2.innerHTML= "These numbers don't seem to match up, please input realistic adult human heights / weights and try again :)";
+    }
+}
+
+btn1.addEventListener("click", calculateBMI);
+
+</script>
+
+</body>
+</html>
